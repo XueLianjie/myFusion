@@ -1,0 +1,2 @@
+/home/mobile/myFusion/build/src/CMakeFiles/frame.dir
+/home/mobile/myFusion/build/src/CMakeFiles/generatePointCloud.dir

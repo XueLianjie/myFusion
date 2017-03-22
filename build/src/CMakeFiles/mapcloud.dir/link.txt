@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../../lib/libmapcloud.a  CMakeFiles/mapcloud.dir/mapcloud.cpp.o
+/usr/bin/ranlib ../../lib/libmapcloud.a

@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../../lib/libframe.a  CMakeFiles/frame.dir/frame.cpp.o
+/usr/bin/ranlib ../../lib/libframe.a
