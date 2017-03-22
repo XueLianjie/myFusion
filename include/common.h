@@ -2,10 +2,19 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-
 #include <chrono>
 #include <string>
 #include <boost/concept_check.hpp>
+#include <list>
+#include <vector>
+#include <memory>
+#include <set>
+#include <map>
+#include <unordered_map>
+
+//for Sophus
+#include <sophus/se3.h>
+#include <sophus/so3.h>
 
 //Opencv library
 #include <opencv2/core/core.hpp>
