@@ -22,6 +22,7 @@
   private:
     Camera camera;
     cv::Mat frame;
+    pcl::RadiusOut
     
   };
 

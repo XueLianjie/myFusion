@@ -20,8 +20,10 @@ include_directories( "/usr/include/eigen3/" )
 
 add_library(frame frame.cpp)
 add_library(mapcloud mapcloud.cpp)
+add_library(config config.cpp)
 
 add_executable(generatePointCloud generatePointCloud.cpp)
+
 
 target_link_libraries(generatePointCloud ${OpenCV_LIBS} 
 					 ${PCL_LIBRARIES}

@@ -7,6 +7,7 @@ public:
   MapCloud();
     
   MapCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr pointcloud) {
+    pointcloud = MapCloud::gridfilter(gridsize, pointcloud);
     sourcecloud = pointcloud;
     mapcloud = pointcloud;
     targetcloud = pointcloud;
@@ -14,6 +15,8 @@ public:
   }
 
   void addTargetCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr targetpointcloud); //添加目标点云
+  
+  pcl::PointCloud<pcl::PointXYZ>::Ptr gridfilter(double grid_size, pcl::PointCloud<pcl::PointXYZ>::Ptr voxel_cloud);//滤波降采样函数
   
   pcl::PointCloud<pcl::PointXYZ>::Ptr iterativeClosestPoint(); //迭代最近点
   
@@ -28,7 +31,7 @@ public:
   
   pcl::VoxelGrid<pcl::PointXYZ> voxel; //网格滤波器，调整点云地图分辨率
 
-  double gridsize = 0.1; //点云分辨率
+  double gridsize = 0.05; //点云分辨率
     
   Eigen::Matrix<float, 4, 4> trans; //两点云之间的变换坐标
 
