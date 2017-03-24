@@ -20,7 +20,7 @@ int main(int argc, char** argv)
   pcl::PointCloud<pcl::PointXYZ>::Ptr output;// = pointcloud; // (new pcl::PointCloud<pcl::PointXYZ>);
   pcl::visualization::CloudViewer viewer("viewer");
 
-  for(int i = 1; i < 700; i=i+3)
+  for(int i = 1; i < 200; i=i+3)
   { 
     std::stringstream ss;
     ss<<i+1;
@@ -33,7 +33,7 @@ int main(int argc, char** argv)
     viewer.showCloud(output);
     
   }
-  pcl::io::savePCDFile( "mapcloud1.pcd", *output );
+  pcl::io::savePCDFile( "mapcloud2.pcd", *output );
   
   return 0;
   

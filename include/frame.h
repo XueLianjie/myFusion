@@ -1,7 +1,5 @@
 #pragma once
 #include "common.h"
-
-
 //namespace Fusion{
   
   struct Camera
@@ -22,7 +20,10 @@
   private:
     Camera camera;
     cv::Mat frame;
-    pcl::RadiusOut
+    pcl::PassThrough<pcl::PointXYZ> pass; //直通滤波器
+    pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;//统计离群点滤波器
+    
+    
     
   };
 
