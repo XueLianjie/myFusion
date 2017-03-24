@@ -1,12 +1,14 @@
-#include "common.h" 
+#include "common.h"
+#include "config.h"
 #pragma once
 //这是一个类
 class MapCloud
 {
 public:
-  MapCloud();
+  MapCloud()
+  {}
     
-  MapCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr pointcloud) {
+   MapCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr pointcloud) {
     pointcloud = MapCloud::gridfilter(gridsize, pointcloud);
     sourcecloud = pointcloud;
     mapcloud = pointcloud;
@@ -35,7 +37,9 @@ public:
   
   double gridsize = Config::get<double> ("grid_size"); //点云分辨率
   double outlier_threshold = Config::get<double> ("outlier_threshold");//离群点阈值
-  int MeanK = Config::get<int> ("MeanK");//统计滤波范围点数
+  int MeanK = Config::get<int> ("MeanK");//统计滤波范围点
+  
+  std::string first_depth_addr = Config::get<std::string> ("first_depth_addr");
   
   Eigen::Matrix<float, 4, 4> trans; //两点云之间的变换坐标
 

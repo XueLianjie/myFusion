@@ -1,4 +1,5 @@
 #include "frame.h"
+#include "config.h"
 
   Frame::Frame()
   {
@@ -7,7 +8,9 @@
     camera.fx = 518.0;
     camera.fy = 519.0;
     camera.depthScale = 1000.0;  
-    
+    frame = cv::imread("./depth_png/1.png", -1); //frame_;
+    zmin = Config::get<double> ("z_min");
+    zmax = Config::get<double> ("z_max");
   }
   
   Frame::Frame(Camera camera_, cv::Mat frame_)

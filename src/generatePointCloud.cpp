@@ -2,6 +2,7 @@
 #include "common.h"
 #include "mapcloud.h"
 #include "config.h"
+#include "visualodometry.h"
 //namespace Fusion{
 
 int main(int argc, char** argv)
@@ -13,6 +14,12 @@ int main(int argc, char** argv)
     return 1;
   }
   Config::setParameterFile ( argv[1] );
+  /*
+  VisualOdometry vo;
+  pcl::PointCloud<pcl::PointXYZ>::Ptr output;
+  vo.VO(output);
+  
+  */
   
   Camera new_camera; //相机 参数
   new_camera.cx = Config::get<float> ("camera.cx");// 325.5;
@@ -50,6 +57,7 @@ int main(int argc, char** argv)
     viewer.showCloud(output);
     
   }
+  
   pcl::io::savePCDFile( "mapcloud2.pcd", *output );
   
   return 0;

@@ -1,7 +1,6 @@
-#pragma once
 #include "common.h"
 //namespace Fusion{
-  
+#pragma once  
   struct Camera
   {
     double cx, cy, fx, fy, depthScale;
