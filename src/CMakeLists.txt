@@ -28,6 +28,7 @@ add_executable(generatePointCloud generatePointCloud.cpp)
 target_link_libraries(generatePointCloud ${OpenCV_LIBS} 
 					 ${PCL_LIBRARIES}
 					 frame 
-					 mapcloud)
+					 mapcloud
+					 config)
 
 

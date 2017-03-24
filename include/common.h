@@ -34,3 +34,8 @@
 //Eigen
 #include <Eigen/Core>
 #include <Eigen/Geometry>
+
+//my library
+#include "config.h"
+#include "frame.h"
+//#include "mapcloud.h"

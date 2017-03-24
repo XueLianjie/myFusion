@@ -18,7 +18,8 @@
     camera.fy = camera_.fy;
     camera.depthScale = camera_.depthScale;
     frame = frame_;
-    
+    zmin = Config::get<double> ("z_min");
+    zmax = Config::get<double> ("z_max");
   }
   
   pcl::PointCloud<pcl::PointXYZ>::Ptr Frame::toPointCloud()
@@ -37,7 +38,7 @@
 	continue;
       
       p.z = - double(d) / camera.depthScale;
-      p.x = (n - camera.cx) * p.z / camera.fx;
+      p.x = - (n - camera.cx) * p.z / camera.fx;
       p.y = (m - camera.cy) * p.z / camera.fy;
       cloud_p->points.push_back(p);
       
@@ -46,19 +47,17 @@
     cloud_p->width = cloud_p->points.size();
     cloud_p->is_dense = false;
     cloud_p->points.resize(cloud_p->width * cloud_p->height);
+    
+    //
+    
+    
     //进行滤波
     //直通滤波器，去除较远处的点，设置z 方向的显示范围 
     pass.setInputCloud(cloud_p);
     pass.setFilterFieldName("z");
-    pass.setFilterLimits(-3.0, 0.0);//由于前面为了正确显示点云，对p.z取反，此处对z坐标的范围设置为（-3.0, 0.0），此数值可根据需要更改。
+    pass.setFilterLimits(zmin, zmax);//由于前面为了正确显示点云，对p.z取反，此处对z坐标的范围设置为（-3.0, 0.0），此数值可根据需要更改。
     pass.filter(*cloud_p);
-    
-    //滤波器移除离群点
-    sor.setInputCloud(cloud_p);
-    sor.setMeanK(50);//设置进行统计时考虑查询点临近点数
-    sor.setStddevMulThresh(1.0);//设置判断是否为离群点的阈值
-    sor.filter(*cloud_p);
-    
+
     
     return cloud_p;
     

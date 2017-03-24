@@ -12,6 +12,7 @@ public:
     mapcloud = pointcloud;
     targetcloud = pointcloud;
     tmpcloud = pointcloud;
+    
   }
 
   void addTargetCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr targetpointcloud); //添加目标点云
@@ -30,9 +31,12 @@ public:
   pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;//icp 智能指针
   
   pcl::VoxelGrid<pcl::PointXYZ> voxel; //网格滤波器，调整点云地图分辨率
-
-  double gridsize = 0.05; //点云分辨率
-    
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;//统计离群点滤波器
+  
+  double gridsize = Config::get<double> ("grid_size"); //点云分辨率
+  double outlier_threshold = Config::get<double> ("outlier_threshold");//离群点阈值
+  int MeanK = Config::get<int> ("MeanK");//统计滤波范围点数
+  
   Eigen::Matrix<float, 4, 4> trans; //两点云之间的变换坐标
 
 };

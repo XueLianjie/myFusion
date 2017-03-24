@@ -21,7 +21,7 @@
     Camera camera;
     cv::Mat frame;
     pcl::PassThrough<pcl::PointXYZ> pass; //直通滤波器
-    pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;//统计离群点滤波器
+    double zmin,zmax;
     
     
     

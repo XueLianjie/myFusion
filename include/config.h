@@ -13,7 +13,7 @@ public:
   //set a new config file
   static void setParameterFile(const std::string &filename);//静态函数
   
-  //access the parameter values
+  //access the parameter values. 定义为模板函数以接受不同类型的数据参数
   template <typename T>
   static T get(const std::string &key)//静态成员函数， 不能通过对象调用静态成员函数；  由于静态成员函数不与特定的对象关联， 因此只能使用静态数据成员。 
   {
