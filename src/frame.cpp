@@ -40,8 +40,8 @@
       if(d == 0)
 	continue;
       
-      p.z = - double(d) / camera.depthScale;
-      p.x = - (n - camera.cx) * p.z / camera.fx;
+      p.z =  double(d) / camera.depthScale;
+      p.x =  (n - camera.cx) * p.z / camera.fx;
       p.y = (m - camera.cy) * p.z / camera.fy;
       cloud_p->points.push_back(p);
       

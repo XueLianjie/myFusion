@@ -29,7 +29,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr MapCloud::iterativeClosestPoint()
   //判断变换矩阵是否在合理范围内
   
   
-  
+  /*
   //拼接点云，以最新的相机坐标系为世界坐标系
   pcl::transformPointCloud(*mapcloud, *tmpcloud, trans);//对地图点云做trans变换
   *tmpcloud += *targetcloud;//拼接点云
@@ -38,9 +38,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr MapCloud::iterativeClosestPoint()
   
   std::cout << "has converged:" << icp.hasConverged() << "\nscore: " << icp.getFitnessScore() << std::endl;
   mapcloud = MapCloud::gridfilter(0.01, mapcloud);
-  
-    
-
+  */
   
   return mapcloud;
   

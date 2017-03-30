@@ -13,14 +13,14 @@ camera.scale: 1000.0
 #icp 迭代间隔帧数
 iterative_interval: 5
 start_index: 1
-end_index: 200
+end_index: 50
 
 # 网格滤波器点云分辨率
-grid_size: 0.03
+grid_size: 0.1
 
 #直通滤波器z方向范围参数
-z_min: -4.0
-z_max: 0.0
+z_min: 0.0
+z_max: 4.0
 
 #移除离群点滤波器参数
 #进行统计时考虑查询点临近点数
@@ -28,6 +28,10 @@ MeanK: 50
 #判断是否为离群点的阈值
 outlier_threshold: 1.0
 
+#是否显示点云
+show_cloud: 1
+
+first_depth_addr: ./depth_png/1.png
 
 # VO paras
 #number_of_features: 500

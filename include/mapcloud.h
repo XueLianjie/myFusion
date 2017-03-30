@@ -41,6 +41,7 @@ public:
   
   std::string first_depth_addr = Config::get<std::string> ("first_depth_addr");
   
+  //Eige::Isometry3d trans;
   Eigen::Matrix<float, 4, 4> trans; //两点云之间的变换坐标
 
 };
