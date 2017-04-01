@@ -4,6 +4,7 @@
 #include "config.h"
 #include "visualodometry.h"
 //namespace Fusion{
+//using namespace std;
 
 int main(int argc, char** argv)
 {
